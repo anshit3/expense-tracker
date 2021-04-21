@@ -1,6 +1,7 @@
 import './ExpenseItem.css';
 import { string, number, instanceOf } from 'prop-types';
 import ExpenseDate from './ExpenseDate';
+import Card from './Card';
 
 function ExpenseItem(props) {
   const {
@@ -8,13 +9,13 @@ function ExpenseItem(props) {
   } = props;
 
   return (
-    <div className="expense-item" key={id}>
+    <Card className="expense-item" key={id}>
       <ExpenseDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">${amount}</div>
       </div>
-    </div>
+    </Card>
   );
 }
 

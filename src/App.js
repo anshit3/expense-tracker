@@ -1,4 +1,5 @@
 import Expenses from './components/Expenses';
+import Card from './components/Card';
 
 function App() {
   const expenses = [
@@ -31,9 +32,9 @@ function App() {
   return (
     <div>
       <h2>Expense Manager</h2>
-      <div className="expenses">
+      <Card className="expenses">
         <Expenses expense={expenses} />
-      </div>
+      </Card>
     </div>
   );
 }
