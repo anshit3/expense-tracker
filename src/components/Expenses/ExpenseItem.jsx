@@ -1,9 +1,9 @@
 import './ExpenseItem.css';
 import { string, number, instanceOf } from 'prop-types';
 import ExpenseDate from './ExpenseDate';
-import Card from './Card';
+import Card from '../UI/Card';
 
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   const {
     id, title, amount, date,
   } = props;
@@ -17,7 +17,7 @@ function ExpenseItem(props) {
       </div>
     </Card>
   );
-}
+};
 
 ExpenseItem.propTypes = {
   id: string,

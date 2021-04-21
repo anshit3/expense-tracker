@@ -1,7 +1,7 @@
 import { instanceOf } from 'prop-types';
 import './ExpenseDate.css';
 
-function ExpenseDate(props) {
+const ExpenseDate = (props) => {
   const { date } = props;
 
   const month = date.toLocaleDateString('en-US', { month: 'long' });
@@ -15,7 +15,7 @@ function ExpenseDate(props) {
       <div className="expense-date_year">{year}</div>
     </div>
   );
-}
+};
 
 ExpenseDate.propTypes = {
   date: instanceOf(Object),
