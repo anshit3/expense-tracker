@@ -1,7 +1,9 @@
 import './ExpenseForm.css';
 import { useState } from 'react';
+import { func } from 'prop-types';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
+  const { onSaveExpenseData } = props;
   const [title, setTitle] = useState('Where did you spend money?');
   const [amount, setAmount] = useState('0.0');
   const [date, setDate] = useState('');
@@ -17,8 +19,24 @@ const ExpenseForm = () => {
   const dateChangeHandler = (e) => {
     setDate(e.target.value);
   };
+
+  const formSubmitHandler = (event) => {
+    event.preventDefault();
+
+    const expenseDate = {
+      title,
+      amount,
+      date: new Date(date),
+    };
+    onSaveExpenseData(expenseDate);
+
+    setTitle('');
+    setAmount('');
+    setDate('');
+  };
+
   return (
-    <form>
+    <form onSubmit={formSubmitHandler}>
       <div className="new-expense_controls">
         <div className="new-expense__control">
           <label htmlFor="title">
@@ -68,3 +86,11 @@ const ExpenseForm = () => {
 };
 
 export default ExpenseForm;
+
+ExpenseForm.propTypes = {
+  onSaveExpenseData: func.isRequired,
+};
+
+ExpenseForm.dafaultProps = {
+  onSaveExpenseData: () => console.log('Function to save data not received'),
+};

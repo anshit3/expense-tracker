@@ -30,10 +30,14 @@ const App = () => {
     },
   ];
 
+  const saveNewExpenseDataHandler = (newExpense) => {
+    console.log(newExpense);
+  };
+
   return (
     <div>
       <h2>Expense Manager</h2>
-      <NewExpense />
+      <NewExpense onNewExpenseAddition={saveNewExpenseDataHandler} />
       <Card className="expenses">
         <Expenses expense={expenses} />
       </Card>
