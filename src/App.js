@@ -1,5 +1,4 @@
 import Expenses from './components/Expenses/Expenses';
-import Card from './components/UI/Card';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
@@ -38,9 +37,7 @@ const App = () => {
     <div>
       <h2>Expense Manager</h2>
       <NewExpense onNewExpenseAddition={saveNewExpenseDataHandler} />
-      <Card className="expenses">
-        <Expenses expense={expenses} />
-      </Card>
+      <Expenses expense={expenses} />
     </div>
   );
 };
