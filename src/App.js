@@ -1,8 +1,9 @@
+import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
 const App = () => {
-  const expenses = [
+  const DUMMY_EXPENSES = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -29,8 +30,13 @@ const App = () => {
     },
   ];
 
+  const [expenses, updateWithNewExpense] = useState(DUMMY_EXPENSES);
+
   const saveNewExpenseDataHandler = (newExpense) => {
-    console.log(newExpense);
+    updateWithNewExpense((previousExpenses) => [
+      newExpense,
+      ...previousExpenses,
+    ]);
   };
 
   return (

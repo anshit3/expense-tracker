@@ -20,8 +20,8 @@ const ExpenseForm = (props) => {
     setDate(e.target.value);
   };
 
-  const formSubmitHandler = (event) => {
-    event.preventDefault();
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
 
     const expenseDate = {
       title,
