@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { func } from 'prop-types';
 
 const ExpenseForm = (props) => {
-  const { onSaveExpenseData } = props;
+  const { onSaveExpenseData, stopEditingHandler } = props;
   const [title, setTitle] = useState('Where did you spend money?');
   const [amount, setAmount] = useState('0.0');
   const [date, setDate] = useState('');
@@ -78,6 +78,9 @@ const ExpenseForm = (props) => {
           </label>
         </div>
         <div className="new-expense__actions">
+          <button type="button" onClick={stopEditingHandler}>
+            Cancel
+          </button>
           <button type="submit">Add Expense</button>
         </div>
       </div>
