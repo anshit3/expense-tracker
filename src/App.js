@@ -41,7 +41,6 @@ const App = () => {
 
   return (
     <div>
-      <h2>Expense Manager</h2>
       <NewExpense onNewExpenseAddition={saveNewExpenseDataHandler} />
       <Expenses expense={expenses} />
     </div>
